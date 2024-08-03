@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ "$#" -ne 8 ]; then
-    echo "Usage: $0 <runner_host> <runner_port> <runner_user> <runner_password> <GITHUB_USER_OR_ORG> <REPO_NAME> <PERSONAL_ACCESS> <runner_type>"
+    echo "Usage: add_ci <runner_host> <runner_port> <runner_user> <runner_password> <GITHUB_USER_OR_ORG> <REPO_NAME> <PERSONAL_ACCESS> <runner_type>"
     exit 1
 fi
 
