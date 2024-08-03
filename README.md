@@ -16,7 +16,7 @@
 
 | Problem | Solution |
 | --- | --- |
-| **Problem 1** | **Solution 1** |
+| **How to integrate the project wokflow on every project?** | **This tool creates a workflow standard for every project thus facilitating the deployment of the projects.** |
 
 # How to install
 
