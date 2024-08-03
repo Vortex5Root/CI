@@ -31,8 +31,8 @@ else
 fi
 git checkout -b beta
 git checkout -b dev
-cp /home/vortex/CI/deploy.sh ./deploy.sh
-cp /home/vortex/CI/deploy.yaml ./.github/workflows/deploy.yaml
+cp ~/tools/CI/deploy.sh ./deploy.sh
+cp ~/tools/CI/deploy.yaml ./.github/workflows/deploy.yaml
 git add .
 git commit -m "Add deployment scripts"
 git push origin beta
