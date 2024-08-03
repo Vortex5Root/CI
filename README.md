@@ -37,7 +37,7 @@ make
 
 # How to use
 
-1.
+add_ci <runner_host> <runner_port> <runner_user> <runner_password> <GITHUB_USER_OR_ORG> <REPO_NAME> <PERSONAL_ACCESS> <runner_type>
 
 
 # Aknowledgements
