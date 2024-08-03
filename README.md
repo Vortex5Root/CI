@@ -32,8 +32,20 @@ cd CI
 
 3. Run the installation script:
 ```bash
-make
+make install
 ```
+Note: After running `make install`, you may need to run `source ~/.bashrc`.
+
+3.1. Make Optional:
+```bash
+make [target]
+```
+- **`target`**: The target to execute. Available targets are:
+    - `install`: Install the CI tool.
+    - `update`: Update the CI tool.
+    - `uninstall`: Uninstall the CI tool.
+    - `rebase_project`: Rebase the CI tool.
+    - `help`: Display the help message.
 
 # How to use
 
