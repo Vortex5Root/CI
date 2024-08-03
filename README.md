@@ -18,25 +18,41 @@
 | --- | --- |
 | **How to integrate the project workflow on every github project?** | **This tool creates a workflow standard for every github project thus facilitating the deployment of the projects.** |
 
-## How to install
+## Index
+
+| topic | sub-topic | 
+| --- | --- |
+| [Installation](#how-to-install) | |
+| | [How to install?](#how-to-install) |
+| | [Make Optional](#make-optional) |
+| [Usage](#how-to-use) | |
+| | [Options](#options) |
+| | [Mandatory Options](#mandatory-options) |
+| | [Setup Runner Options](#setup-runner-options) |
+| [Aknowledgements](#aknowledgements) | |
+| | [Coder](#coder) |
+| | [Contributor](#contributor) |
+| [Conclusion](#conclusion) | |
+
+## How to install? 
 
 1. Clone the repository:
 ```bash
 git clone https://github.com/Vortex5Root/CI.git
 ```
 
-2. Change the directory:
+### 2. Change the directory:
 ```bash
 cd CI
 ```
 
-3. Run the installation script:
+### Run the installation script:
 ```bash
 make install
 ```
 Note: After running `make install`, you may need to run `source ~/.bashrc`.
 
-3.1. Make Optional:
+### Make Optional:
 ```bash
 make [target]
 ```
@@ -47,7 +63,7 @@ make [target]
     - `rebase_project`: Rebase the CI tool.
     - `help`: Display the help message.
 
-## How to use
+## How to use ?
 
 ```bash
 add_ci -git <GITHUB_USER_OR_ORG> -repo <REPO_NAME> -key <PERSONAL_ACCESS> [Runner-Options]
