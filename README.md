@@ -16,7 +16,7 @@
 
 | Problem | Solution |
 | --- | --- |
-| **How to integrate the project wokflow on every project?** | **This tool creates a workflow standard for every project thus facilitating the deployment of the projects.** |
+| **How to integrate the project workflow on every github project?** | **This tool creates a workflow standard for every github project thus facilitating the deployment of the projects.** |
 
 # How to install
 
