@@ -34,6 +34,12 @@
 | | [Contributor](#contributor) |
 | [Conclusion](#conclusion) | |
 
+## Requirements
+
+| Requirement | Version |
+| --- | --- |
+| ![Debian](https://img.shields.io/badge/Debian-A81D33?style=flat&logo=debian&logoColor=white&style=for-the-badge) | 12.5.0 |
+
 ## How to install? 
 
 1. Clone the repository:
