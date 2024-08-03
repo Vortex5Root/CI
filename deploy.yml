@@ -1,0 +1,25 @@
+name: Deploy on Merge
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - dev
+      - main
+
+jobs:
+  deploy:
+    if: github.event.pull_request.merged == true
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run deploy script
+        run: |
+          if [[ "${{ github.event.pull_request.base.ref }}" == "dev" ]]; then
+            sshpass -p "secrets.DEV_SERVER_Password" ssh -o StrictHostKeyChecking=no ${{ secrets.DEV_SERVER_USER }}@${{ secrets.DEV_SERVER_IP }} 'bash -s' < deploy.sh
+          elif [[ "${{ github.event.pull_request.base.ref }}" == "main" ]]; then
+            sshpass -p "secrets.MAIN_SERVER_Password" ssh -o StrictHostKeyChecking=no ${{ secrets.MAIN_SERVER_USER }}@${{ secrets.MAIN_SERVER_IP }} 'bash -s' < deploy.sh
+          fi
