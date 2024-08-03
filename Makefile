@@ -1,7 +1,7 @@
 .PHONY: clone_repo
 
 clone_repo:
-	cd ~ && git clone <repository_url> /path/to/destination
+	cd ~ && git clone  ~/
 
 .PHONY: add_CI
 
