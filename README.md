@@ -1,5 +1,5 @@
 [![GitHub license](https://img.shields.io/github/license/Vortex5Root/CI.svg)](https://github.com/Vortex5Root/CI/blob/master/LICENSE)
-[![GitHub total downloads](https://img.shields.io/github/downloads/Vortex5Root/CI/total.svg)](https://github.com/Vortex5Root/CI/releases)
+[![GitHub all releases](https://img.shields.io/github/downloads/Vortex5Root/CI/total.svg)](https://github.com/Vortex5Root/CI/releases)
 
 [![GitHub forks](https://img.shields.io/github/forks/Vortex5Root/CI.svg)](https://github.com/Vortex5Root/CI/network)
 [![GitHub stars](https://img.shields.io/github/stars/Vortex5Root/CI.svg)](https://github.com/Vortex5Root/CI/stargazers)
