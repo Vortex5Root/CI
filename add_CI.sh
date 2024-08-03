@@ -9,15 +9,19 @@ runner_password=""
 # Parse the optional flags
 while getopts "h:p:u:pu:" opt; do
   case $opt in
-    h) runner_host="$OPTARG"
+    rh) runner_host="$OPTARG"
     ;;
-    p) runner_port="$OPTARG"
+    rp) runner_port="$OPTARG"
     ;;
-    u) runner_user="$OPTARG"
+    ru) runner_user="$OPTARG"
     ;;
-    pu) runner_password="$OPTARG"
+    rpw) runner_password="$OPTARG"
     ;;
-    \?) echo "Invalid option -$OPTARG" >&2; exit 1
+    update) ~/tools/CI/make update
+    ;;
+    h) echo "Help-Menu\n-h: for help\n-rh: runner_host\n-rp: runner_port\n-ru: runner_user\n-rpw: runner_password"
+    ;;
+    \?) echo "Invalid option -$OPTARG use -h for help" >&2 exit 1
     ;;
   esac
 done
@@ -26,7 +30,7 @@ done
 shift $((OPTIND -1))
 
 if [ "$#" -ne 4 ]; then
-    echo "Usage: add_ci [-h runner_host] [-p runner_port] [-u runner_user] [-pu runner_password] <GITHUB_USER_OR_ORG> <REPO_NAME> <PERSONAL_ACCESS> <runner_type>"
+    echo "Usage: add_ci -h for help"
     exit 1
 fi
 
