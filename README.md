@@ -40,7 +40,14 @@ make
 ```bash
 add_ci <runner_host> <runner_port> <runner_user> <runner_password> <GITHUB_USER_OR_ORG> <REPO_NAME> <PERSONAL_ACCESS> <runner_type>
 ```
-
+runner_host - The IP of the machine that you want to SSH into to deploy the Github Runner
+runner_port - SSH Port
+runner_user - SSH User
+runner_password - The Password Of Your SSH User
+GITHUB_USER_OR_ORG - Your Github User Or Organization
+REPO_NAME - The Repository Name
+PERSONAL_ACCESS - 
+runner_type - 
 # Aknowledgements
 
 [Coder]
@@ -57,8 +64,9 @@ add_ci <runner_host> <runner_port> <runner_user> <runner_password> <GITHUB_USER_
 <a href="https://github.com/PandemicOfNukes">
     <div style="display: flex; justify-content: center; align-items: center; height: 100px; width: 450px;">
         <img src=https://avatars.githubusercontent.com/u/59929476?s=200&v=4 width=50 style="border-radius: 50%;">
-        <a href="https://github.com/PandemicOfNukes">PandemicOfNukes <br><b>        {}</b></a>
+        <a href="https://github.com/PandemicOfNukes">PandemicOfNukes <br><b>        {Student}</b></a>
     </div>
 </a>
 
 # Conclusion
+As you can see CI provides a streamlined and efficient way to automate the process of building and deploying software across various GitHub projects. By standardizing the workflow, this tool simplifies CI/CD integration, making it easier to maintain consistency across your repositories.
