@@ -1,22 +1,45 @@
 #!/bin/bash
 
-if [ "$#" -ne 8 ]; then
-    echo "Usage: add_ci <runner_host> <runner_port> <runner_user> <runner_password> <GITHUB_USER_OR_ORG> <REPO_NAME> <PERSONAL_ACCESS> <runner_type>"
+#Optional Parameters
+runner_host=""
+runner_port=""
+runner_user=""
+runner_password=""
+
+# Parse the optional flags
+while getopts "h:p:u:pu:" opt; do
+  case $opt in
+    h) runner_host="$OPTARG"
+    ;;
+    p) runner_port="$OPTARG"
+    ;;
+    u) runner_user="$OPTARG"
+    ;;
+    pu) runner_password="$OPTARG"
+    ;;
+    \?) echo "Invalid option -$OPTARG" >&2; exit 1
+    ;;
+  esac
+done
+
+#Shift the arguments so that the remaining are the non-flag arguments
+shift $((OPTIND -1))
+
+if [ "$#" -ne 4 ]; then
+    echo "Usage: add_ci [-h runner_host] [-p runner_port] [-u runner_user] [-pu runner_password] <GITHUB_USER_OR_ORG> <REPO_NAME> <PERSONAL_ACCESS> <runner_type>"
     exit 1
 fi
 
-runner_host="$1"
-runner_port="$2"
-runner_user="$3"
-runner_password="$4"
+GITHUB_USER_OR_ORG="$1"
+REPO_NAME="$2"
+PERSONAL_ACCESS="$3"
+runner_type="$4"
 
-GITHUB_USER_OR_ORG="$5"
-REPO_NAME="$6"
-PERSONAL_ACCESS="$7"
-runner_type="$8"
-
-sshpass -p "$runner_password" scp -r -o StrictHostKeyChecking=no -p "$runner_port" ~/CI/server/ "$runner_user"@"$runner_host":~/
-sshpass -p "$runner_password" ssh -o StrictHostKeyChecking=no -p "$runner_port" "$runner_user"@"$runner_host" "cd ~/server && chmod +x ./setup_runner/*.sh && ./setup_runner/Runner.sh $GITHUB_USER_OR_ORG $REPO_NAME $PERSONAL_ACCESS $runner_type"
+# Run the SSH commands only if the necessary SSH details are provided
+if [ -n "$runner_host" ] && [ -n "$runner_port" ] && [ -n "$runner_user" ] && [ -n "$runner_password" ]; then
+    sshpass -p "$runner_password" scp -r -o StrictHostKeyChecking=no -P "$runner_port" ~/CI/server/ "$runner_user"@"$runner_host":~/
+    sshpass -p "$runner_password" ssh -o StrictHostKeyChecking=no -p "$runner_port" "$runner_user"@"$runner_host" "cd ~/server && chmod +x ./setup_runner/*.sh && ./setup_runner/Runner.sh $GITHUB_USER_OR_ORG $REPO_NAME $PERSONAL_ACCESS $runner_type"
+fi
 
 remote_url=$(git config --get remote.origin.url)
 
@@ -36,4 +59,5 @@ cp ~/tools/CI/deploy.yaml ./.github/workflows/deploy.yaml
 git add .
 git commit -m "Add deployment scripts"
 git push origin beta
-echo "Dont forget to set 
+
+echo "Don't forget to set up the required environment variables and secrets for deployment."
