@@ -19,7 +19,7 @@ while getopts "h:p:u:pu:" opt; do
     ;;
     update) ~/tools/CI/make update
     ;;
-    h) echo "Help-Menu\n-h: for help\n-rh: runner_host\n-rp: runner_port\n-ru: runner_user\n-rpw: runner_password"
+    -h) echo "Help-Menu\n-h: for help\n-rh: runner_host\n-rp: runner_port\n-ru: runner_user\n-rpw: runner_password"
     ;;
     \?) echo "Invalid option -$OPTARG use -h for help" >&2 exit 1
     ;;
