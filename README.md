@@ -10,7 +10,7 @@
     <a href="https://github.com/Vortex5Root/CI/commits/master"><img src="https://img.shields.io/github/last-commit/Vortex5Root/CI.svg" alt="GitHub last commit"></a>
 </p>
 
-# Introduction
+## Introduction
 
 > **CI** is a collection of scripts that can be used to automate the process of building and deploying software. It is designed to be used with GitHub Actions, but can be used with other CI/CD services as well.
 
@@ -18,7 +18,7 @@
 | --- | --- |
 | **How to integrate the project workflow on every github project?** | **This tool creates a workflow standard for every github project thus facilitating the deployment of the projects.** |
 
-# How to install
+## How to install
 
 1. Clone the repository:
 ```bash
@@ -47,22 +47,22 @@ make [target]
     - `rebase_project`: Rebase the CI tool.
     - `help`: Display the help message.
 
-# How to use
+## How to use
 
 ```bash
 add_ci -git <GITHUB_USER_OR_ORG> -repo <REPO_NAME> -key <PERSONAL_ACCESS> [Runner-Options]
 ```
-## Options
+### Options
 
 - **`-h`**: Show this help message.
 
-## Mandatory Options
+### Mandatory Options
 
 - **`-git <name>`** or **`--gitname <name>`**: Set the GitHub user or organization name.
 - **`-repo <name>`** or **`--reponame <name>`**: Set the repository name.
 - **`-key <classic_token>`** or **`--personalaccess <classic_token>`**: Set the personal access token.
 
-## Setup Runner Options
+### Setup Runner Options
 
 These options are optional and only needed if you are using a self-hosted runner:
 
@@ -72,7 +72,7 @@ These options are optional and only needed if you are using a self-hosted runner
 - **`-rpw <password>`**: Set the runner password *(Optional)*.
 - **`--update`**: Update the CI tools *(Optional)*.
 
-# Aknowledgements
+## Aknowledgements
 
 [Coder]
 
@@ -92,5 +92,5 @@ These options are optional and only needed if you are using a self-hosted runner
     </div>
 </a>
 
-# Conclusion
+## Conclusion
 As you can see CI provides a streamlined and efficient way to automate the process of building and deploying software across various GitHub projects. By standardizing the workflow, this tool simplifies CI/CD integration, making it easier to maintain consistency across your repositories.
