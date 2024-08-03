@@ -1,3 +1,5 @@
+SHELL := /bin/bash
+
 .PHONY: clone_repo
 
 clone_repo:
