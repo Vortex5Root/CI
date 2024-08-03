@@ -20,6 +20,9 @@ add_alias:
 	@source ~/.bashrc
 	@echo "Alias added successfully"
 
+rebase_project:
+	cd ~/tools/CI && git pull --rebase origin main && chmod +x ~/tools/CI/add_CI.sh
+
 # Define a rule to check if the alias already exists (optional)
 check_alias:
 	@if grep -q "alias $(ALIAS_NAME)=$(ALIAS_COMMAND)" ~/.bashrc; then \
