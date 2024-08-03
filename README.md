@@ -38,23 +38,27 @@ make
 # How to use
 
 ```bash
-add_ci [-h runner_host] [-p runner_port] [-u runner_user] [-pu runner_password] <GITHUB_USER_OR_ORG> <REPO_NAME> <PERSONAL_ACCESS> <runner_type>
+add_ci -git <GITHUB_USER_OR_ORG> -repo <REPO_NAME> -key <PERSONAL_ACCESS> [Runner-Options]
 ```
-- **`runner_host`** *(Optional)*: The IP address of the machine you want to SSH into for deploying the GitHub Runner. This is only needed if you are using a self-hosted runner.
+## Options
 
-- **`runner_port`** *(Optional)*: The SSH port number for the target machine. Default is typically `22`, but it can vary depending on your server configuration.
+- **`-h`**: Show this help message.
 
-- **`runner_user`** *(Optional)*: The SSH username for logging into the target machine.
+## Mandatory Options
 
-- **`runner_password`** *(Optional)*: The password associated with the SSH user. This is only needed if password-based SSH authentication is used instead of key-based authentication.
+- **`-git <name>`** or **`--gitname <name>`**: Set the GitHub user or organization name.
+- **`-repo <name>`** or **`--reponame <name>`**: Set the repository name.
+- **`-key <classic_token>`** or **`--personalaccess <classic_token>`**: Set the personal access token.
 
-- **`GITHUB_USER_OR_ORG`** *(Mandatory)*: Your GitHub username or the name of the organization under which the repository exists.
+## Setup Runner Options
 
-- **`REPO_NAME`** *(Mandatory)*: The name of the GitHub repository where the CI/CD workflow will be integrated.
+These options are optional and only needed if you are using a self-hosted runner:
 
-- **`PERSONAL_ACCESS`** *(Mandatory)*: Your GitHub personal access token, which is required for authenticating API requests.
-
-- **`runner_type`** *(Mandatory)*: The type of runner to deploy. It can be `self-hosted` if you're using your own server or `github-hosted` if you are using GitHub's provided runners.
+- **`-rh <host>`**: Set the runner host *(Optional)*.
+- **`-rp <port>`**: Set the runner port *(Optional)*.
+- **`-ru <user>`**: Set the runner user *(Optional)*.
+- **`-rpw <password>`**: Set the runner password *(Optional)*.
+- **`--update`**: Update the CI tools *(Optional)*.
 
 # Aknowledgements
 
