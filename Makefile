@@ -9,6 +9,9 @@ clone_repo:
 ALIAS_NAME=add_ci
 ALIAS_COMMAND='~/tools/CI/add_CI.sh'
 
+update:
+	cd ~/tools/CI && git pull origin main && chmod +x ~/tools/CI/add_CI.sh
+
 # Define a rule to add the alias to ~/.bashrc
 add_alias:
 	@echo "Adding alias to ~/.bashrc"
