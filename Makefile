@@ -10,7 +10,7 @@ ALIAS_NAME=add_ci
 ALIAS_COMMAND='~/tools/CI/add_CI.sh'
 
 update:
-	cd ~/tools/CI && git pull origin main && chmod +x ~/tools/CI/add_CI.sh
+	cd ~/tools/CI && git stash && git pull origin main && chmod +x ~/tools/CI/add_CI.sh
 
 # Define a rule to add the alias to ~/.bashrc
 add_alias:
@@ -21,7 +21,7 @@ add_alias:
 	@echo "Alias added successfully"
 
 rebase_project:
-	cd ~/tools/CI && git config pull.rebase true && git pull --rebase origin main && git stash && chmod +x ~/tools/CI/add_CI.sh
+	cd ~/tools/CI && git stash && git config pull.rebase true && git pull --rebase origin main && chmod +x ~/tools/CI/add_CI.sh
 
 # Define a rule to check if the alias already exists (optional)
 check_alias:
