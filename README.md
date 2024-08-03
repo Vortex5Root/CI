@@ -41,13 +41,21 @@ make
 add_ci <runner_host> <runner_port> <runner_user> <runner_password> <GITHUB_USER_OR_ORG> <REPO_NAME> <PERSONAL_ACCESS> <runner_type>
 ```
 runner_host - The IP of the machine that you want to SSH into to deploy the Github Runner
+
 runner_port - SSH Port
+
 runner_user - SSH User
+
 runner_password - The Password Of Your SSH User
+
 GITHUB_USER_OR_ORG - Your Github User Or Organization
+
 REPO_NAME - The Repository Name
+
 PERSONAL_ACCESS - 
-runner_type - 
+
+runner_type -
+
 # Aknowledgements
 
 [Coder]
