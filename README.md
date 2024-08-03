@@ -49,8 +49,7 @@ make
         <img src=https://avatars.githubusercontent.com/u/102427260?s=200&v=4 width=50 style="border-radius: 50%;">
         <a href="https://github.com/Vortex5Root">Vortex5Root <br><b>        {Full-Stack Software Engineer}</b></a>
     </div>
-</a>
-
+</a><br><br>
 
 [Contributor]
 
