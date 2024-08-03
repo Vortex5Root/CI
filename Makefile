@@ -1,7 +1,7 @@
 .PHONY: clone_repo
 
 clone_repo:
-	cd ~ && git clone https://github.com/Vortex5Root/CI.git ~/tools/CI && cmod +x ~/tools/CI/add_CI.sh
+	cd ~ && git clone https://github.com/Vortex5Root/CI.git ~/tools/CI && chmod +x ~/tools/CI/add_CI.sh
 
 # Define the alias name and the command
 ALIAS_NAME=add_ci
