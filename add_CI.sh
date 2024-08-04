@@ -120,11 +120,7 @@ fi
 shift $((OPTIND -1))
 
 if [ -n "$GITHUB_USER_OR_ORG" ] && [ -n "$REPO_NAME" ] && [ -n "$PERSONAL_ACCESS" ]; then
-  echo "Creating beta and dev branches..."
-  GITHUB_USER_OR_ORG="$1"
-  REPO_NAME="$2"
-  PERSONAL_ACCESS="$3"
-  runner_type="$4"
+  echo "Copying the CI tools to the server..."
 
   # Run the SSH commands only if the necessary SSH details are provided
   if [ -n "$runner_host" ] && [ -n "$runner_port" ] && [ -n "$runner_user" ] && [ -n "$runner_password" ]; then
