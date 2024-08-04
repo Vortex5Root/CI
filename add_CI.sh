@@ -128,7 +128,7 @@ if [ -n "$GITHUB_USER_OR_ORG" ] && [ -n "$REPO_NAME" ] && [ -n "$PERSONAL_ACCESS
 
   # Run the SSH commands only if the necessary SSH details are provided
   if [ -n "$runner_host" ] && [ -n "$runner_port" ] && [ -n "$runner_user" ] && [ -n "$runner_password" ]; then
-      sshpass -p "$runner_password" scp -r -o StrictHostKeyChecking=no -P "$runner_port" ~/CI/server/ "$runner_user"@"$runner_host":~/
+      sshpass -p "$runner_password" scp -r -o StrictHostKeyChecking=no -P "$runner_port" ~/tools/CI/server/ "$runner_user"@"$runner_host":~/
       sshpass -p "$runner_password" ssh -o StrictHostKeyChecking=no -p "$runner_port" "$runner_user"@"$runner_host" "cd ~/server && chmod +x ./setup_runner/*.sh && ./setup_runner/Runner.sh $GITHUB_USER_OR_ORG $REPO_NAME $PERSONAL_ACCESS $runner_type"
   fi
 
