@@ -153,6 +153,7 @@ if [ -n "$GITHUB_USER_OR_ORG" ] && [ -n "$REPO_NAME" ] && [ -n "$PERSONAL_ACCESS
   git checkout main
   cp ~/tools/CI/deploy.sh ./deploy.sh
   cp ~/tools/CI/deploy.yml ./.github/workflows/deploy.yml
+  sed -i "s/REPO_NAME=\"\"/REPO_NAME=\"$REPO_NAME\"/g" deploy.sh
   git add .
   git commit -m "Add deployment scripts"
   git push origin main
