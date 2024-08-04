@@ -132,7 +132,7 @@ if [ -n "$GITHUB_USER_OR_ORG" ] && [ -n "$REPO_NAME" ] && [ -n "$PERSONAL_ACCESS
   # Run the SSH commands only if the necessary SSH details are provided
   if [ -n "$runner_host" ] && [ -n "$runner_port" ] && [ -n "$runner_user" ] && [ -n "$runner_password" ]; then
       sshpass -p "$runner_password" scp -r -o StrictHostKeyChecking=no -P "$runner_port" ~/tools/CI/server/ "$runner_user"@"$runner_host":~/
-      sshpass -p "$runner_password" ssh -o StrictHostKeyChecking=no -p "$runner_port" "$runner_user"@"$runner_host" "cd ~/server && chmod +x ./setup_runner/*.sh && ./setup_runner/Runner.sh $GITHUB_USER_OR_ORG $REPO_NAME $PERSONAL_ACCESS $REPO_TYPE"
+      sshpass -p "$runner_password" ssh -o StrictHostKeyChecking=no -p "$runner_port" "$runner_user"@"$runner_host" "cd ~/server && chmod +x ./setup_runner/*.sh && bash setup_runner/Runner.sh $GITHUB_USER_OR_ORG $REPO_NAME $PERSONAL_ACCESS $REPO_TYPE"
   fi
 
   remote_url=$(git config --get remote.origin.url)
@@ -148,13 +148,14 @@ if [ -n "$GITHUB_USER_OR_ORG" ] && [ -n "$REPO_NAME" ] && [ -n "$PERSONAL_ACCESS
       git clone git@github.com:$GITHUB_USER_OR_ORG/$REPO_NAME.git
       cd $REPO_NAME
   fi
-  git checkout -b beta
-  git checkout -b dev
+  git branch beta
+  git branch dev
+  git checkout main
   cp ~/tools/CI/deploy.sh ./deploy.sh
   cp ~/tools/CI/deploy.yml ./.github/workflows/deploy.yml
   git add .
   git commit -m "Add deployment scripts"
-  git push origin beta
+  git push origin main
 
   echo "Don't forget to set up the required environment variables and secrets for deployment."
 else
