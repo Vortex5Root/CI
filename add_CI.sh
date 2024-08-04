@@ -142,7 +142,7 @@ if [ -n "$GITHUB_USER_OR_ORG" ] && [ -n "$REPO_NAME" ] && [ -n "$PERSONAL_ACCESS
   echo $repo_name
   echo $REPO_NAME
   echo $repo_name==$REPO_NAME
-  if [ -x "$(command -v git)" ] && [ "$repo_name"=="$REPO_NAME" ]; then
+  if [ -x "$(command -v git)" ] && [ "$repo_name" = "$REPO_NAME" ]; then
       echo "Creating beta and dev branches..."
   else
       git clone git@github.com:$GITHUB_USER_OR_ORG/$REPO_NAME.git
@@ -151,7 +151,7 @@ if [ -n "$GITHUB_USER_OR_ORG" ] && [ -n "$REPO_NAME" ] && [ -n "$PERSONAL_ACCESS
   git checkout -b beta
   git checkout -b dev
   cp ~/tools/CI/deploy.sh ./deploy.sh
-  cp ~/tools/CI/deploy.yaml ./.github/workflows/deploy.yaml
+  cp ~/tools/CI/deploy.yml ./.github/workflows/deploy.yml
   git add .
   git commit -m "Add deployment scripts"
   git push origin beta
