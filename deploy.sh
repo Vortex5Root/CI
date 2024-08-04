@@ -4,15 +4,10 @@ REPO_NAME=""
 GITHUB_USER_OR_ORG=""
 GITHUB_REF="$1"
 
-remote_url=$(git config --get remote.origin.url)
-
-# Extract the repo name from the remote URL
-repo_name=$(basename -s .git $remote_url)
-if [ -x "$(command -v git)" ] && [ "$repo_name" = "$REPO_NAME" ]; then
-    echo "Creating beta and dev branches..."
+if [ -d "$REPO_NAME" ]; then
     cd ./$REPO_NAME
 else
-    git clone git@github.com:$GITHUB_USER_OR_ORG/$REPO_NAME.git
+    git clone https://github.com/$GITHUB_USER_OR_ORG/$REPO_NAME.git
     cd $REPO_NAME
 fi
 
