@@ -1,7 +1,8 @@
 #!/bin/bash
 
 REPO_NAME=""
-GITHUB_REF=""
+GITHUB_USER_OR_ORG=""
+GITHUB_REF="$1"
 
 remote_url=$(git config --get remote.origin.url)
 
