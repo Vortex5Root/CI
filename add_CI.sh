@@ -137,7 +137,9 @@ if [ -n "$GITHUB_USER_OR_ORG" ] && [ -n "$REPO_NAME" ] && [ -n "$PERSONAL_ACCESS
   # Extract the repo name from the remote URL
   repo_name=$(basename -s .git $remote_url)
   echo $repo_name
-  if [ -x "$(command -v git)" ] && [ $repo_name=="$REPO_NAME" ]; then
+  echo $REPO_NAME
+  echo $repo_name==$REPO_NAME
+  if [ -x "$(command -v git)" ] && [ "$repo_name"=="$REPO_NAME" ]; then
       echo "Creating beta and dev branches..."
   else
       git clone git@github.com:$GITHUB_USER_OR_ORG/$REPO_NAME.git
