@@ -90,6 +90,7 @@ RUN apt-get update && apt-get install -y \
     sudo \
     jq \
     libicu-dev \
+    sshpass \
     && rm -rf /var/lib/apt/lists/*
 
 # Create a runner directory
@@ -131,6 +132,7 @@ RUN apt-get update && apt-get install -y \
     sudo \
     jq \
     libicu-dev \
+    sshpass \
     && rm -rf /var/lib/apt/lists/*
 
 # Create a runner directory
