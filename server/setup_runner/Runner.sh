@@ -171,7 +171,28 @@ build_and_run_container() {
     fi
 }
 
+docker_install() {
+    if ! command -v docker &> /dev/null; then
+        echo "Docker is not installed. Installing..."
+        sudo apt-get update
+        sudo apt-get install -y docker.io
+        sudo systemctl start docker
+        sudo systemctl enable docker
+        sudo usermod -aG docker $USER
+    fi
+}
+
+docker_check_group() {
+    if ! groups $USER | grep &>/dev/null '\bdocker\b'; then
+        echo "Adding user to docker group..."
+        sudo usermod -aG docker $USER
+        echo "Please log out and log back in to apply the changes."
+    fi
+}
+
 # Execute the steps
+docker_install
+docker_check_group
 generate_runner_token
 create_dockerfile
 build_and_run_container
