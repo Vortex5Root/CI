@@ -9,6 +9,7 @@ runner_password=""
 GITHUB_USER_OR_ORG=""
 REPO_NAME=""
 PERSONAL_ACCESS=""
+REPO_TYPE=""
 
 debug=false
 
@@ -22,6 +23,7 @@ show_help() {
   echo "  -git <name> or --gitname <name>   Set the GitHub user or organization name"
   echo "  -repo <name> or --reponame <name>  Set the repository name"
   echo "  -key <classic_token> or --personalaccess <classic_token> Set the personal access token"
+  echo "  -rtype <type> (type: user or org) Set the repository type"
   echo "Setup Runner Options:"
   echo "  -rh <host>        Set the runner host"
   echo "  -rp <port>        Set the runner port"
@@ -75,6 +77,11 @@ while [[ $# -gt 0 ]]; do
       shift # past argument
       shift # past value
       ;;
+    -rtype)
+      REPO_TYPE="$2"
+      shift # past argument
+      shift # past value
+      ;;
     --gitname)
       GITHUB_USER_OR_ORG="$2"
       shift # past argument
@@ -119,13 +126,13 @@ fi
 # Shift the arguments so that the remaining are the non-flag arguments
 shift $((OPTIND -1))
 
-if [ -n "$GITHUB_USER_OR_ORG" ] && [ -n "$REPO_NAME" ] && [ -n "$PERSONAL_ACCESS" ]; then
+if [ -n "$GITHUB_USER_OR_ORG" ] && [ -n "$REPO_NAME" ] && [ -n "$PERSONAL_ACCESS" ] && [ -n "$REPO_TYPE" ]; then
   echo "Copying the CI tools to the server..."
 
   # Run the SSH commands only if the necessary SSH details are provided
   if [ -n "$runner_host" ] && [ -n "$runner_port" ] && [ -n "$runner_user" ] && [ -n "$runner_password" ]; then
       sshpass -p "$runner_password" scp -r -o StrictHostKeyChecking=no -P "$runner_port" ~/tools/CI/server/ "$runner_user"@"$runner_host":~/
-      sshpass -p "$runner_password" ssh -o StrictHostKeyChecking=no -p "$runner_port" "$runner_user"@"$runner_host" "cd ~/server && chmod +x ./setup_runner/*.sh && ./setup_runner/Runner.sh $GITHUB_USER_OR_ORG $REPO_NAME $PERSONAL_ACCESS $runner_type"
+      sshpass -p "$runner_password" ssh -o StrictHostKeyChecking=no -p "$runner_port" "$runner_user"@"$runner_host" "cd ~/server && chmod +x ./setup_runner/*.sh && ./setup_runner/Runner.sh $GITHUB_USER_OR_ORG $REPO_NAME $PERSONAL_ACCESS $REPO_TYPE"
   fi
 
   remote_url=$(git config --get remote.origin.url)
