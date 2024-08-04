@@ -10,7 +10,7 @@
     <a href="https://github.com/Vortex5Root/CI/commits/master"><img src="https://img.shields.io/github/last-commit/Vortex5Root/CI.svg" alt="GitHub last commit"></a>
 </p>
 
-## Introduction
+<h2 align="center">Introduction</h2>
 
 > **CI** is a collection of scripts that can be used to automate the process of building and deploying software. It is designed to be used with GitHub Actions, but can be used with other CI/CD services as well.
 
@@ -18,7 +18,7 @@
 | --- | --- |
 | **How to integrate the project workflow on every github project?** | **This tool creates a workflow standard for every github project thus facilitating the deployment of the projects.** |
 
-## Index
+<h2 align="center">Index</h2>
 
 | topic | sub-topic | 
 | --- | --- |
@@ -34,7 +34,8 @@
 | | [Contributor](#contributor) |
 | [Conclusion](#conclusion) | |
 
-## Requirements
+
+<h2 align="center">Requirements</h2>
 
 | Requirement | Version |
 | --- | --- |
@@ -105,7 +106,7 @@ These options are optional and only needed if you are using a self-hosted runner
 
 -------
 
-## Aknowledgements
+<h2 align="center">Aknowledgements</h2>
 
 <p align="center">
     <br>[Coder]<br>
@@ -114,5 +115,7 @@ These options are optional and only needed if you are using a self-hosted runner
     <a href="https://github.com/PandemicOfNukes"><img src=https://avatars.githubusercontent.com/u/59929476?s=200&v=4 width=50 style="border-radius: 50%;"><br>PandemicOfNukes <br><b>        {Student}</b></a><br><br>
 </p>
 
-## Conclusion
-As you can see CI provides a streamlined and efficient way to automate the process of building and deploying software across various GitHub projects. By standardizing the workflow, this tool simplifies CI/CD integration, making it easier to maintain consistency across your repositories.
+<h2 align="center">Conclusion</h2>
+</p align="center">
+    As you can see CI provides a streamlined and efficient way to automate the process of building and deploying software across various GitHub projects. By standardizing the workflow, this tool simplifies CI/CD integration, making it easier to maintain consistency across your repositories.
+</p>
