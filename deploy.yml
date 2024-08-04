@@ -19,7 +19,7 @@ jobs:
       - name: Run deploy script
         run: |
           if [[ "${{ github.event.pull_request.base.ref }}" = "main" ]]; then
-            sshpass -p "${{ secrets.MAIN_SERVER_Password }}" ssh -o StrictHostKeyChecking=no ${{ secrets.MAIN_SERVER_USER }}@${{ secrets.MAIN_SERVER_IP }} 'bash -s' < deploy.sh
+            sshpass -p "${{ secrets.MAIN_SERVER_Password }}" ssh -o StrictHostKeyChecking=no ${{ secrets.MAIN_SERVER_USER }}@${{ secrets.MAIN_SERVER_IP }} 'bash -s' < deploy.sh ${{ github.event.pull_request.base.ref }}
           elif [[ "${{ github.event.pull_request.base.ref }}" = "dev" ]]; then
-            sshpass -p "${{ secrets.DEV_SERVER_Password }}" ssh -o StrictHostKeyChecking=no ${{ secrets.DEV_SERVER_USER }}@${{ secrets.DEV_SERVER_IP }} 'bash -s' < deploy.sh
+            sshpass -p "${{ secrets.DEV_SERVER_Password }}" ssh -o StrictHostKeyChecking=no ${{ secrets.DEV_SERVER_USER }}@${{ secrets.DEV_SERVER_IP }} 'bash -s' < deploy.sh ${{ github.event.pull_request.base.ref }}
           fi
